@@ -250,13 +250,13 @@ private fun KidsQuizApp(speak: (String)->Unit, sound: (Boolean)->Unit) {
                             }, modifier=Modifier.fillMaxWidth().height(55.dp), shape=RoundedCornerShape(12.dp), colors=ButtonDefaults.buttonColors(containerColor=c)) { Text(opt, fontSize=18.sp, fontWeight=FontWeight.Bold, color=if(c==Color(0xFFE0E0E0)) Color.DarkGray else Color.White) }
                         }
                     }
-                    Spacer(Modifier.height(12.dp)); OutlinedButton(onClick={home}) { Text("முகப்புக்குச் செல்") }
+                    Spacer(Modifier.height(12.dp)); OutlinedButton(onClick={ home() }) { Text("முகப்புக்குச் செல்") }
                 } else {
                     Text("🎉 வாழ்த்துகள்! 🎉", fontSize=26.sp, fontWeight=FontWeight.Bold, color=Color(0xFFE91E63))
                     Spacer(Modifier.height(12.dp)); Text("நீங்கள் பெற்ற புள்ளிகள்:", fontSize=20.sp)
                     Text("$score / 20", fontSize=38.sp, fontWeight=FontWeight.Bold, color=Color(0xFF4CAF50))
                     Text(if(score>16) "⭐⭐⭐" else if(score>10) "⭐⭐" else "⭐", fontSize=42.sp)
-                    Spacer(Modifier.height(12.dp)); Button(onClick={home}, modifier=Modifier.fillMaxWidth().height(55.dp)) { Text("மீண்டும் விளையாடு 🔄", fontSize=18.sp) }
+                    Spacer(Modifier.height(12.dp)); Button(onClick={ home() }, modifier=Modifier.fillMaxWidth().height(55.dp)) { Text("மீண்டும் விளையாடு 🔄", fontSize=18.sp) }
                     LaunchedEffect(Unit) { speak("வாழ்த்துகள்! விளையாட்டு முடிந்தது!"); sound(true) }
                 }
                 Spacer(Modifier.height(20.dp)); Text("Created by Mohmmed Ifas", fontSize=13.sp, color=Color.Gray, fontWeight=FontWeight.Bold)
